@@ -47,6 +47,8 @@ class InstallCommand extends Command
 
         $this->importArticles();
 
+        $this->installNuxt();
+
         $this->info('Completed!');
     }
 
@@ -55,5 +57,12 @@ class InstallCommand extends Command
         $this->info('Articles...');
 
         Artisan::call('articles:import https://ucarecdn.com/a0d70122-fe8a-4bad-ba7c-a138392e41e0/');
+    }
+
+    protected function installNuxt()
+    {
+        $this->info('Nuxtjs...');
+
+        Artisan::call('nuxt:link');
     }
 }
