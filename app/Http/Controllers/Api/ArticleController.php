@@ -13,7 +13,7 @@ class ArticleController extends Controller
     {
     	$articles = Article::filter($request->all())->latest()->paginate();
 
-    	// $articles->load('categories', 'media', 'contents');
+    	Article::loadRelations($articles, $request->input('with'));
 
     	return ArticleResource::collection($articles);
     }
