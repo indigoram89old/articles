@@ -19,10 +19,7 @@ class CreateArticleMediaTable extends Migration
             $table->uuid('uuid')->unique();
             $table->timestamps();
             $table->timestamp('published_at')->nullable();
-
-            $table->bigInteger('article_id')->unsigned();
             
-            $table->string('type')->default(ArticleMedia::TYPE_FEATURED);
             $table->string('file')->default(ArticleMedia::FILE_IMAGE);
             
             $table->string('slug');
@@ -35,8 +32,6 @@ class CreateArticleMediaTable extends Migration
             
             $table->smallInteger('width')->unsigned()->nullable();
             $table->smallInteger('height')->unsigned()->nullable();
-            
-            $table->foreign('article_id')->references('id')->on('articles');
         });
     }
 

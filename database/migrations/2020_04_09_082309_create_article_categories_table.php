@@ -17,12 +17,7 @@ class CreateArticleCategoriesTable extends Migration
             $table->string('id')->unique();
             $table->timestamps();
             
-            $table->bigInteger('article_id')->unsigned();
-            
-            $table->string('name');
-            $table->boolean('primary')->default(false);
-            
-            $table->foreign('article_id')->references('id')->on('articles');
+            $table->string('title');
         });
     }
 
